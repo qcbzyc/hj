@@ -1,0 +1,8 @@
+cn\cslg\mapper\UserMapper.class
+cn\cslg\mapper\UsersLikeVideosMapper.class
+cn\cslg\mapper\VideosMapper.class
+cn\cslg\mapper\SearchRecordsMapper.class
+cn\cslg\mapper\UsersFansMapper.class
+cn\cslg\mapper\CommentsMapper.class
+cn\cslg\mapper\UsersReportMapper.class
+cn\cslg\mapper\BgmMapper.class
