@@ -1,8 +1,7 @@
-package cn.cslg.web;
+﻿package cn.cslg.web;
 
 import cn.cslg.dao.EmployeeDao;
 import cn.cslg.model.Employee;
-import cn.cslg.model.User;
 import cn.cslg.until.ResponseUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
