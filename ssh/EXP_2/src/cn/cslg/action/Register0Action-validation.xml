@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+"-//Apache Struts//XWork Validator 1.0//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.dtd">
+<validators>
+	<validator type="stringlength">
+		<param name="fieldName">userName</param>
+		<param name="maxLength">10</param>
+		<param name="minLength">2</param>
+		<message>姓名长度为${minLength}~${maxLength}个字符！</message>
+	</validator>
+	<validator type="stringlength">
+		<param name="fieldName">userPassWord</param>
+		<param name="maxLength">16</param>
+		<param name="minLength">6</param>
+		<message>密码长度为${minLength}~${maxLength}个字符！</message>
+	</validator>
+	<validator type="fieldexpression">
+		<param name="fieldName">userPassword</param>
+		<param name="expression">
+		<![CDATA[userPassword==ruserPassword]]>
+		</param>
+		<message>两次密码不一样！</message>
+	</validator>
+	<validator type="int">
+		<param name="fieldName">userAge</param>
+		<param name="min">1</param>
+		<param name="max">150</param>
+		<message>年龄必须在${min}~${max}!</message>
+	</validator>
+	<validator type="int">
+		<param name="fieldName">userTelphone</param>
+		<param name="min">00000000000</param>
+		<param name="max">99999999999</param>
+		<message>电话必须是${min}~${max}的十一位号码!</message>
+	</validator>
+	<validator type="email">
+		<param name="fieldName">userEmail</param>
+		<message>请使用正确的邮件格式!</message>
+	</validator>
+</validators>

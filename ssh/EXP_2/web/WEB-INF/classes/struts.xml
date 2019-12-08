@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+    <constant name="struts.custom.i18n.resources" value="globalMessages"></constant>
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+    <package name="default" namespace="/" extends="struts-default">
+
+        <action name="01" class="cn.cslg.action.CounterAction" method="excute">
+            <result name="success">/01.jsp</result>
+        </action>
+
+        <action name="login" class="cn.cslg.action.LoginAction" method="excute">
+            <result name="success">/main.jsp</result>
+            <result name="error">/login.jsp</result>
+        </action>
+
+        <action name="register" class="cn.cslg.action.RegisterAction" method="excute">
+            <result name="success">/login.jsp</result>
+        </action>
+
+        <action name="checklogin" class="cn.cslg.action.Login0Action" method="excute">
+            <result name="success">/loginSuccess.jsp</result>
+            <result name="error">/loginch.jsp</result>
+        </action>
+
+        <action name="register2" class="cn.cslg.action.Register0Action" method="excute">
+            <result name="input">/register2.jsp</result>
+            <result name="success">/success2.jsp</result>
+        </action>
+
+        <action name="upLoad" class="cn.cslg.action.UploadAction" method="excute">
+            <interceptor-ref name="fileUpload">
+                <param name="maximumSize">10000000</param>
+                <param name="allowedTypes">
+                    image/gif,image/png,image/jpeg,image/jpg,image/pjpeg
+                </param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"/>
+            <!-- 设置上传文件保存的文件夹 -->
+            <param name="savePath">/save</param>
+            <result name="input">/fileUp.jsp</result>
+            <result name="success">/fileUpSuccess.jsp</result>
+        </action>
+
+        <action name="fileDownload" class="cn.cslg.action.FileDownload" method="excute">
+            <param name="path">C:\02\cslg.jpg</param>
+            <!-- 设置stream属性 -->
+            <result name="success" type="stream">
+                <!-- 设置stream对应的参数 -->
+                <param name="contentType">image/jpg</param>
+                <param name="inputName">inputStream</param>
+                <param name="contentDisposition">attachment;filename="cslg.jpg"</param>
+                <param name="bufferSize">40960</param>
+            </result>
+        </action>
+
+    </package>
+
+</struts>

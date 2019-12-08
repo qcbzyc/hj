@@ -4,8 +4,18 @@ Page({
   data: {
 
   },
+
+  onLoad:function(params){
+    var me = this;
+    var redirectUrl = params.redirectUrl;
+    console.log(redirectUrl);
+    redirectUrl = redirectUrl.replace(/#/g,"?");
+    redirectUrl = redirectUrl.replace(/@/g,"=");
+    me.redirectUrl = redirectUrl;
+  },
   // 登录  
   doLogin: function (e) {
+    var me = this;
     var formObject = e.detail.value;
     var username = formObject.username;
     var password = formObject.password;
@@ -32,6 +42,12 @@ Page({
         header: {
           'content-type': 'application/json' // 默认值
         },
+        "networkTimeout": {
+          "request": 10000000,
+          "connectSocket": 1000000,
+          "uploadFile": 1000000,
+          "downloadFile": 1000000
+        },
         success: function (res) {
           console.log(res.data);
           wx.hideLoading();
@@ -42,7 +58,21 @@ Page({
               icon: 'success',
               duration: 2000
             });
-            app.userInfo = res.data.data;  
+
+            var redirectUrl = me.redirectUrl;
+            if(redirectUrl != null && redirectUrl != undefined && redirectUrl !=''){
+              wx.redirectTo({
+                url: redirectUrl,
+              });
+            }else{
+              wx.redirectTo({
+                url: '../mine/mine',
+              });
+            }
+ 
+            //fixme 修改原有的全局对象为本地缓存
+            app.setGlobalUserInfo(res.data.data);
+            //app.userInfo = res.data.data;
           } else if (res.data.status == 500) {
             // 失败弹出框
             wx.showToast({
@@ -56,7 +86,7 @@ Page({
     }
   },
 
-  goRegistPage:function() {
+  goRegistPage: function () {
     wx.redirectTo({
       url: '../userRegist/regist',
     })

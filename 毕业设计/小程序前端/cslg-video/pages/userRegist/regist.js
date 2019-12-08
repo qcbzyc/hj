@@ -17,6 +17,9 @@ Page({
       })
     }else{
       var serverUrl=app.serverUrl;
+      wx.showLoading({
+        title: '请等待...',
+      });
       wx.request({
         url: serverUrl+'/regist',
         method:"POST",
@@ -29,14 +32,17 @@ Page({
         },
         success:function(res){
           console.log(res.data);
+          wx.hideLoading();
           var status = res.data.status;
-          if(statu==200){
+          if(status==200){
             wx.showToast({
               title: '用户注册成功~！！！',
               icon:'none',
               duration:3000
-            }),
-            app.userInfo = res.data.data;
+            });
+            //fixme 修改原有的全局对象为本地缓存
+            app.getGlobalUserInfo(res.data.data);
+            //app.userInfo = res.data.data;
           }else if(status==500){
             wx.showToast({
               title: res.data.msg,
