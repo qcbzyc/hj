@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/fastjson-1.2.58.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/jstl-1.2.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/spring-aop-5.0.5.RELEASE.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/spring-beans-5.0.5.RELEASE.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/spring-context-5.0.5.RELEASE.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/spring-core-5.0.5.RELEASE.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/spring-expression-5.0.5.RELEASE.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/spring-jcl-5.0.5.RELEASE.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/spring-jdbc-5.0.5.RELEASE.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/spring-tx-5.0.5.RELEASE.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/spring-web-5.0.5.RELEASE.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/lib/struts2-spring-plugin-2.3.4.1.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/image/login" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/js" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

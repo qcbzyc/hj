@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="po">
+  <class name="Client" table="client">
+    <id column="ID" name="id" type="integer">
+      <generator class="identity"/>
+    </id>
+    <property column="CLIENTNAME" name="clientname" type="string"/>
+    <property column="PHONE" name="phone" type="string"/>
+    <property column="EMAIL" name="email" type="string"/>
+    <!--映射Client到Address的一对一外键关联-->
+    <many-to-one cascade="all" class="po.Address" column="ADDRESS" lazy="false" name="address" unique="true"/>
+  </class>
+</hibernate-mapping>

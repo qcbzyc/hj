@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="po">
+  <class name="Items" table="items">
+    <id column="ID" name="id" type="integer">
+      <generator class="identity"/>
+    </id>
+    <property column="ITEMNO" name="itemno" type="string"/>
+    <property column="ITEMNAME" name="itemname" type="string"/>
+    <!--映射Items到Orders的多对多单向关联-->
+    <set cascade="save-update" inverse="true" lazy="true" name="orders" table="selecteditems">
+      <key column="ITEMID"/>
+      <many-to-many class="po.Orders" column="ORDERID"/>
+    </set>
+  </class>
+</hibernate-mapping>

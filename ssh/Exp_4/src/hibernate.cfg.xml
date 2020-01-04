@@ -1,0 +1,28 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!--Hibernate配置文件的根元素，其它元素应在其中 -->
+<hibernate-configuration>
+    <!-- 设置初始化Hibernate参数的元素，其中指定Hibernate初始化参数，表明以下的配置是针对session-factory配置，SessionFactory是Hibernate中的一个接口，这个接口主要负责保存Hibernate的配置信息，以及对Session的操作 -->
+    <session-factory>
+        <!-- 设置连接数据库所用的驱动 ，本例中的com.mysql.jdbc.Driver 是MySQL的驱动名字 -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <!--设置数据库连接使用的url，“jdbc:mysql://localhost(IP):port/test”，其中，localhost(IP)表示MySQL服务器名称，即连接地址，此处为本机。port代表MySQL服务器的端口号，默认是3306。test是数据库名，即要连接的数据库名 -->
+        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/test4?useSSL=false&amp;serverTimezone=UTC</property>
+        <!-- 设置数据库的用户名（登录名） -->
+        <property name="hibernate.connection.username">root</property>
+        <!-- 设置数据库的连接密码 -->
+        <property name="hibernate.connection.password">hj928</property>
+        <!-- 设置数据库的方言，每种数据库都有对应的方言 -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- 加入映射文件，可以加入多个映射文件 -->
+        <mapping resource="po/Address.hbm.xml" />
+        <mapping resource="po/Client.hbm.xml" />
+        <mapping resource="po/Company.hbm.xml" />
+        <mapping resource="po/Login.hbm.xml" />
+        <mapping resource="po/Customer.hbm.xml"/>
+        <mapping resource="po/Orders.hbm.xml"/>
+        <mapping resource="po/Items.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

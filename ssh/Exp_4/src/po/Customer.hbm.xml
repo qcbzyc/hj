@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="po">
+  <class name="Customer" table="customer">
+    <id column="ID" name="id" type="integer">
+      <generator class="identity"/>
+    </id>
+    <property column="CNAME" name="cname" type="string"/>
+    <property column="BANK" name="bank" type="string"/>
+    <property column="PHONE" name="phone" type="string"/>
+    <!--一对多双向关联映射customer到orders，单的一方配置-->
+    <set cascade="all" inverse="true" lazy="false" name="orders">
+      <key column="CUSTOMER_ID"/>
+      <one-to-many class="po.Orders"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="po">
+  <class name="Login" table="login">
+    <id column="ID" name="id" type="integer">
+      <generator class="foreign">
+        <param name="property">company</param>
+      </generator>
+    </id>
+    <property column="LOGINNAME" name="loginname" type="string"/>
+    <property column="LOGINPWD" name="loginpwd" type="string"/>
+    <!--映射Company与Login的一对一关联-->
+    <one-to-one class="po.Company" constrained="true" name="company"/>
+  </class>
+</hibernate-mapping>
